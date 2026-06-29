@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-# pyrefly: ignore [missing-import]
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql import DataFrame as SparkDataFrame
@@ -113,14 +112,20 @@ class BasePipeline(ABC):
         try:
             import snowflake.connector
             from snowflake.connector.pandas_tools import write_pandas
-            from pyspark.sql.functions import col, year, when
+            from pyspark.sql.functions import col, year, when, current_timestamp, current_date
             from pyspark.sql.types import DateType, TimestampType
 
             for f in df.schema.fields:
-                if isinstance(f.dataType, (DateType, TimestampType)):
+                if isinstance(f.dataType, DateType):
                     df = df.withColumn(
                         f.name,
-                        when((year(col(f.name)) > 9999) | (year(col(f.name)) < 1), None)
+                        when((year(col(f.name)) > 9999) | (year(col(f.name)) < 1), current_date())
+                        .otherwise(col(f.name))
+                    )
+                elif isinstance(f.dataType, TimestampType):
+                    df = df.withColumn(
+                        f.name,
+                        when((year(col(f.name)) > 9999) | (year(col(f.name)) < 1), current_timestamp())
                         .otherwise(col(f.name))
                     )
 
@@ -153,4 +158,3 @@ class BasePipeline(ABC):
         except Exception as e:
             logger.error(f"Failed to write to Snowflake: {e}", exc_info=True)
             raise
-

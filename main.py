@@ -5,7 +5,8 @@ from pyspark.sql import SparkSession
 from delta import configure_spark_with_delta_pip
 
 from config.spark_config import spark_conf
-from config.pipeline_config import SELLER_FILES, KAFKA_MESSAGE_SCHEMA
+
+from config.pipeline_config import SELLER_FILES
 
 from jobs.batch import BatchPipeline
 from jobs.streaming import StreamingPipeline
@@ -23,21 +24,6 @@ def main():
     Apache Spark session with Delta Lake support and triggers either the 
     batch processing engine or the real-time streaming consumer based 
     on command-line arguments.
-
-    CLI Arguments:
-        --mode (str): Execution mode. Options: 'batch' (process static files) 
-                      or 'streaming' (consume from Kafka). Defaults to 'batch'.
-        --skip-llm (flag): If present, bypasses LLM-based data imputation. 
-                           Essential for error recovery or cost-saving scenarios.
-
-    Raises:
-        SystemExit: Exits with code 1 if:
-            - An unsupported mode is provided.
-            - Batch processing results in 0 records (indicating potential source failure).
-
-    Example:
-        $ python main.py --mode batch --skip-llm
-        $ python main.py --mode streaming
     """
 
     parser = argparse.ArgumentParser(description="EarnestPipeline runner")
@@ -51,8 +37,16 @@ def main():
     args = parser.parse_args()
     mode = args.mode
 
-    builder = SparkSession.builder.config(conf=spark_conf())
-    spark = configure_spark_with_delta_pip(builder).getOrCreate()
+    builder = SparkSession.builder.config(conf=spark_conf()).config("spark.sql.adaptive.enabled", "false")
+    
+    existing_packages = builder._options.get("spark.jars.packages")
+    extra_packages = existing_packages.split(",") if existing_packages else []
+    
+    spark = configure_spark_with_delta_pip(
+        builder,
+        extra_packages=extra_packages
+    ).getOrCreate()
+    
     logger.info("SparkSession created — %s | mode: %s", spark.sparkContext.appName, mode)
 
     if mode == "batch":
@@ -66,7 +60,10 @@ def main():
             sys.exit(1)
 
     elif mode == "streaming":
-        pipeline = StreamingPipeline(spark, schema=KAFKA_MESSAGE_SCHEMA)
+        if args.skip_llm:
+            logger.info("--skip-llm flag active: LLM imputation will be bypassed in streaming")
+            
+        pipeline = StreamingPipeline(spark, skip_llm=args.skip_llm)
         pipeline.run()
 
     else:

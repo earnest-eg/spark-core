@@ -1,0 +1,565 @@
+{
+  "date": "2026-06-29",
+  "agents": {
+    "Llama 4": {
+      "dropped": false,
+      "keys": {
+        "GROQ_API_KEY_1": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_2": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_3": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_4": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_5": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_6": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_7": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_8": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_9": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_10": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_11": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_12": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_13": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_14": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_15": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        }
+      }
+    },
+    "Llama 3": {
+      "dropped": false,
+      "keys": {
+        "GROQ_API_KEY_1": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_2": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_3": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_4": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_5": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_6": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_7": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_8": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_9": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_10": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_11": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_12": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_13": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_14": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_15": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        }
+      }
+    },
+    "GPT OSS": {
+      "dropped": false,
+      "keys": {
+        "GROQ_API_KEY_1": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_2": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_3": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_4": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_5": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_6": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_7": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_8": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_9": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_10": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_11": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_12": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_13": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_14": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_15": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        }
+      }
+    },
+    "GPT OSS Safeguard": {
+      "dropped": false,
+      "keys": {
+        "GROQ_API_KEY_1": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_2": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_3": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_4": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_5": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_6": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_7": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_8": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_9": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_10": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_11": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_12": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_13": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_14": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_15": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        }
+      }
+    },
+    "GPT OSS 20B": {
+      "dropped": false,
+      "keys": {
+        "GROQ_API_KEY_1": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_2": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_3": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_4": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_5": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_6": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_7": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_8": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_9": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_10": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_11": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_12": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_13": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_14": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_15": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        }
+      }
+    },
+    "Llama 3.1 Instant": {
+      "dropped": false,
+      "keys": {
+        "GROQ_API_KEY_1": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_2": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_3": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_4": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_5": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_6": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_7": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_8": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_9": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_10": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_11": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_12": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_13": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_14": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_15": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        }
+      }
+    },
+    "Groq": {
+      "dropped": false,
+      "keys": {
+        "GROQ_API_KEY_1": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_2": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_3": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_4": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_5": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_6": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_7": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_8": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_9": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_10": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_11": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_12": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_13": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_14": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        },
+        "GROQ_API_KEY_15": {
+          "attempts": 0,
+          "dropped": false,
+          "drop_reason": null
+        }
+      }
+    }
+  }
+}

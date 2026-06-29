@@ -5,22 +5,29 @@ It provides default values for various pipeline parameters and allows for
 specifying overrides for specific sellers.
 """
 
-
 import os
 from typing import Final
 
 from transformers.constants import load_registry
-from pyspark.sql.types import StructType, StructField, StringType
-
 
 _BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _DATA_DIR = os.path.join(_BASE_DIR, "Data")
 
 
+REGISTERED_SELLERS: Final[list[str]] = [
+    "aggregated_beauty", "ariika", "bashrety", "btech", "cairosales",
+    "carrefour", "chicco", "cleaned", "compumarts", "cstore",
+    "decathlon", "dokkantech", "elghazawy", "ennap", "eva", "fresh",
+    "gosport", "gourmet", "hyperone", "intersport", "jumia", "kimostore",
+    "mahmoud_elfar", "mazaya", "meercato", "metro", "noon", "pipeline_final",
+    "raya", "samir_and_aly", "seoudi", "sigma", "talabat",
+    "the_beauty_secrets", "toptoys", "tradeline"
+]
+
+
 SELLER_FILES = {
     "aggregated_beauty"  : os.path.join(_DATA_DIR, "aggregated_beauty_products.csv"),
     "ariika"             : os.path.join(_DATA_DIR, "ariika_products_etl_clean_with_keys.csv"),
-    #"babyisland"         : os.path.join(_DATA_DIR, "babyisland_products_expanded.csv"),
     "bashrety"           : os.path.join(_DATA_DIR, "bashrety_products_clean.csv"),
     "btech"              : os.path.join(_DATA_DIR, "btech.csv"),
     "cairosales"         : os.path.join(_DATA_DIR, "cairosales_products_clean.csv"),
@@ -86,7 +93,7 @@ _OVERRIDES = {
 
 SELLER_CONFIGS = {
     seller: {**_DEFAULTS, **_OVERRIDES.get(seller, {})}
-    for seller in SELLER_FILES.keys()
+    for seller in REGISTERED_SELLERS
 }
 
 
@@ -130,21 +137,3 @@ VALID_CATEGORIES: Final[frozenset[str]] = frozenset(_reg["canonical_categories"]
 VALID_SUBCATEGORIES: Final[frozenset[str]] = frozenset(_reg["canonical_subcategories"])
 
 LOG_ROW_COUNTS: Final[bool] = os.getenv("LOG_ROW_COUNTS", "false").lower() in ("1", "true", "yes")
-
-KAFKA_MESSAGE_SCHEMA = StructType([
-    StructField("title", StringType(), True),
-    StructField("product_current_price", StringType(), True),
-    StructField("product_old_price", StringType(), True),
-    StructField("product_discount", StringType(), True),
-    StructField("product_url", StringType(), True),
-    StructField("product_image_url", StringType(), True),
-    StructField("product_availability", StringType(), True),
-    StructField("product_category", StringType(), True),
-    StructField("product_subcategory", StringType(), True),
-    StructField("product_brand", StringType(), True),
-    StructField("product_ram", StringType(), True),
-    StructField("product_storage", StringType(), True),
-    StructField("product_weight", StringType(), True),
-    StructField("product_unit", StringType(), True),
-    StructField("name", StringType(), True),
-])

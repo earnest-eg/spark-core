@@ -55,8 +55,9 @@ class Config:
     KAFKA_TOPIC               : str
 
     BRONZE_LAYER_PATH         : str
-    SILVER_LAYER_PATH         : str
-    GOLD_LAYER_PATH           : str
+    
+    AZURE_STORAGE_ACCOUNT_NAME: str
+    AZURE_STORAGE_ACCOUNT_KEY : str
 
     
     SNOWFLAKE_URL             : str
@@ -109,8 +110,9 @@ config = Config(
     KAFKA_TOPIC=required_env("KAFKA_TOPIC", "topic_0"),
 
     BRONZE_LAYER_PATH=required_env("BRONZE_LAYER_PATH", "output/bronze"),
-    SILVER_LAYER_PATH=required_env("SILVER_LAYER_PATH"),
-    GOLD_LAYER_PATH=required_env("GOLD_LAYER_PATH"),
+
+    AZURE_STORAGE_ACCOUNT_NAME=os.getenv("AZURE_STORAGE_ACCOUNT_NAME", ""),
+    AZURE_STORAGE_ACCOUNT_KEY=os.getenv("AZURE_STORAGE_ACCOUNT_KEY", ""),
 
     SNOWFLAKE_URL=required_env("SNOWFLAKE_URL"),
     SNOWFLAKE_USER=required_env("SNOWFLAKE_USER"),

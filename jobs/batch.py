@@ -48,10 +48,6 @@ class BatchPipeline(BasePipeline):
                 raw_df = self.spark.read.option("header", "true").csv(file_path)
                 clean_df = self._transform(seller, raw_df, self.skip_llm)
 
-                output_path = f"output/silver/{seller}_output"
-                logger.info(f"Saving {seller} to {output_path} as CSV")
-                clean_df.write.mode("overwrite").option("header", "true").csv(output_path)
-
                 table_name = "STG_ALL_SELLERS_PRODUCTS"
 
                 self.write_to_snowflake(clean_df, table_name, mode="append")
