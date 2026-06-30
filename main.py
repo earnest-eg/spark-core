@@ -1,8 +1,8 @@
 import argparse
+import os
 import sys
 
 from pyspark.sql import SparkSession
-from delta import configure_spark_with_delta_pip
 
 from config.spark_config import spark_conf
 
@@ -37,15 +37,21 @@ def main():
     args = parser.parse_args()
     mode = args.mode
 
-    builder = SparkSession.builder.config(conf=spark_conf()).config("spark.sql.adaptive.enabled", "false")
+    is_databricks = "DATABRICKS_RUNTIME_VERSION" in os.environ
     
-    existing_packages = builder._options.get("spark.jars.packages")
-    extra_packages = existing_packages.split(",") if existing_packages else []
-    
-    spark = configure_spark_with_delta_pip(
-        builder,
-        extra_packages=extra_packages
-    ).getOrCreate()
+    if is_databricks:
+        spark = SparkSession.builder.getOrCreate()
+    else:
+        from delta import configure_spark_with_delta_pip
+        builder = SparkSession.builder.config(conf=spark_conf()).config("spark.sql.adaptive.enabled", "false")
+        
+        existing_packages = builder._options.get("spark.jars.packages")
+        extra_packages = existing_packages.split(",") if existing_packages else []
+        
+        spark = configure_spark_with_delta_pip(
+            builder,
+            extra_packages=extra_packages
+        ).getOrCreate()
     
     logger.info("SparkSession created — %s | mode: %s", spark.sparkContext.appName, mode)
 

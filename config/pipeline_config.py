@@ -11,7 +11,7 @@ from typing import Final
 from transformers.constants import load_registry
 
 _BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-_DATA_DIR = os.path.join(_BASE_DIR, "Data")
+_DATA_DIR = os.environ.get("SPARK_CORE_DATA_DIR", os.path.join(_BASE_DIR, "Data"))
 
 
 REGISTERED_SELLERS: Final[list[str]] = [
