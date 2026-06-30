@@ -1,0 +1,44 @@
+version: 2
+
+metrics:
+  - name: avg_product_price
+    description: The average listed current price of products across the platform.
+    type: simple
+    label: Average Product Price
+    type_params:
+      measure: average_current_price
+
+  - name: max_product_price
+    description: The maximum listed current price among products.
+    type: simple
+    label: Maximum Product Price
+    type_params:
+      measure: max_current_price
+
+  - name: min_product_price
+    description: The minimum listed current price among products.
+    type: simple
+    label: Minimum Product Price
+    type_params:
+      measure: min_current_price
+
+  - name: sum_of_discounts
+    description: The total absolute discount amount available across all products.
+    type: simple
+    label: Total Discount Amount
+    type_params:
+      measure: total_discount_amount
+
+  - name: avg_discount_percentage
+    description: The average discount percentage offered on products.
+    type: simple
+    label: Average Discount Percentage
+    type_params:
+      measure: average_discount_percentage
+
+  - name: total_products_listed
+    description: The total count of all products recorded in the database.
+    type: simple
+    label: Total Products Listed
+    type_params:
+      measure: total_product_count

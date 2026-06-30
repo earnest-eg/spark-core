@@ -40,7 +40,20 @@ def main():
     is_databricks = "DATABRICKS_RUNTIME_VERSION" in os.environ
     
     if is_databricks:
-        spark = SparkSession.builder.getOrCreate()
+        try:
+            spark = SparkSession.builder.getOrCreate()
+        except RuntimeError as e:
+            if "DatabricksSession.builder" in str(e) or "Databricks Connect" in str(e):
+                from databricks.connect import DatabricksSession
+                
+                db_builder = DatabricksSession.builder
+                cluster_id = os.environ.get("DATABRICKS_CLUSTER_ID")
+                if cluster_id:
+                    db_builder = db_builder.clusterId(cluster_id)
+                    
+                spark = db_builder.getOrCreate()
+            else:
+                raise
     else:
         from delta import configure_spark_with_delta_pip
         builder = SparkSession.builder.config(conf=spark_conf()).config("spark.sql.adaptive.enabled", "false")

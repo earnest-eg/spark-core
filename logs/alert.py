@@ -29,18 +29,23 @@ def _sanitize(msg: str) -> str:
 
 
 
-def send_discord_alert(step_name: str, error_message: str):
+def send_discord_alert(step_name: str, message: str, is_success: bool = False):
     url = getattr(config, "DISCORD_WEBHOOK_URL", "")
     if not _is_valid_webhook(url):
         return
 
-    safe_message = _sanitize(error_message)
+    safe_message = _sanitize(message)
+    
+    title = "✅ **Spark Pipeline Success** ✅" if is_success else "🚨 **Spark Pipeline Error** 🚨"
+    embed_title = f"Successful step: {step_name}" if is_success else f"Failed at step: {step_name}"
+    color = 3066993 if is_success else 15158332 # Green vs Red
+
     payload = {
-        "content": "🚨 **Spark Pipeline Error** 🚨",
+        "content": title,
         "embeds": [{
-            "title": f"Failed at step: {step_name}",
+            "title": embed_title,
             "description": f"```{safe_message}```",
-            "color": 15158332,
+            "color": color,
         }],
     }
     try:
@@ -52,17 +57,21 @@ def send_discord_alert(step_name: str, error_message: str):
 
 
 
-def send_telegram_alert(step_name: str, error_message: str):
+def send_telegram_alert(step_name: str, message: str, is_success: bool = False):
     token = getattr(config, "TELEGRAM_BOT_TOKEN", "")
     chat_id = getattr(config, "TELEGRAM_CHAT_ID", "")
     if not token or not token.strip() or not chat_id or not chat_id.strip():
         return
 
-    safe_message = _sanitize(error_message)
+    safe_message = _sanitize(message)
     url = f"https://api.telegram.org/bot{token}/sendMessage"
+    
+    title = "✅ *Spark Pipeline Success*" if is_success else "🚨 *Spark Pipeline Error*"
+    step_label = "*Completed Step:*" if is_success else "*Failed Step:*"
+
     payload = {
         "chat_id": chat_id,
-        "text": f"🚨 *Spark Pipeline Error*\n*Step:* {step_name}\n*Error:*\n```\n{safe_message}\n```",
+        "text": f"{title}\n{step_label} {step_name}\n*Details:*\n```\n{safe_message}\n```",
         "parse_mode": "Markdown",
     }
     try:
@@ -74,14 +83,15 @@ def send_telegram_alert(step_name: str, error_message: str):
 
 
 
-def broadcast_alert(step_name: str, error_message: str) -> None:
+def broadcast_alert(step_name: str, message: str, is_success: bool = False) -> None:
     """
-    Send pipeline failure alerts to all configured channels.
+    Send pipeline failure or success alerts to all configured channels.
 
     Args:
-        step_name (str): The name of the step that failed.
-        error_message (str): The error message to send.
+        step_name (str): The name of the step that triggered the alert.
+        message (str): The error or success message to send.
+        is_success (bool): Set to True for green success notifications, False for red failure errors.
     """
 
-    send_discord_alert(step_name, error_message)
-    send_telegram_alert(step_name, error_message)
+    send_discord_alert(step_name, message, is_success)
+    send_telegram_alert(step_name, message, is_success)
